@@ -1,0 +1,9 @@
+maquina :
+  java :
+    versión : oraclejdk8
+
+despliegue :
+  puesta en escena :
+    rama : master
+    heroku :
+      nombre de la aplicación : new-app2021
