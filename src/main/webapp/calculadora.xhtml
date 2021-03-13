@@ -4,21 +4,59 @@
 		xmlns:p="http://primefaces.org/ui"
 		xmlns:f="http://java.sun.com/jsf/core">
 
-	<h:head></h:head>
+	<h:head>
+		<style>
+		body {background-color: Silver;}
+		h1   {color: blue;}
+		p    {color: Black;}
+		
+		.center {
+		 text-align: center;
+		border: 3px solid Gray;
+			}
+			
+		input[type=text] {
+		  width: 100%;
+		  padding: 12px 20px;
+		  margin: 8px 0;
+		  box-sizing: border-box;
+		  border: none;
+		  background-color: #3CBC8D;
+		  color: white;
+		}
+		
+		outputLabel [type=text] {
+		  width: 100%;
+		  padding: 12px 20px;
+		  margin: 8px 0;
+		  box-sizing: border-box;
+		  border: none;
+		  background-color: #3CBC8D;
+		  color: white;
+		}
+		</style>
+	</h:head>
 
 	<h:body>
-		<h:form id="calculadora_form" header="Calculadora">			
-			<h2><p align="center">Calculadora Estadística</p></h2>
-			<h4> <p align="center">Crhystian Molano y Cristian Ruiz</p></h4>
-			<h3>Datos de la muestra (separados por ,)</h3>
-
+		<h:form id="calculadora_form" header="Calculadora">	
+			<div class="center">
+			<h1><p align="center" style="font-size:40px;">Calculadora Estadística</p></h1>
+			<h3> <p align="center">Crhystian Molano y Cristian Ruiz</p></h3>
+			<img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/96e2db57-fce8-4b04-a7b0-a75951ad8a84/da95oz0-bef0cc43-c453-4575-af9f-e2a4243ff813.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvOTZlMmRiNTctZmNlOC00YjA0LWE3YjAtYTc1OTUxYWQ4YTg0XC9kYTk1b3owLWJlZjBjYzQzLWM0NTMtNDU3NS1hZjlmLWUyYTQyNDNmZjgxMy5naWYifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.sX-XcCbiu00yXefeFD6vJHwdJ5GKQDluaov4cW953R4" alt="programing" style="width:300px;height:300px;">
+		</img>
+		</div>
+			<h3> <p align="center">
+			</p></h3>
+			<h3 style="
+			color:black;text-align:center">Datos de la muestra ( separados por , )</h3>
 			<p:inputText id="datos" placeholder="Ingrese los valores" value="#{calculadoraBean.datos}" />
 			
-			<p:panelGrid columns="4">
-				<p:outputLabel value="Promedio #{calculadoraBean.promedio}"/>
-				<p:outputLabel value="DesviacionEstandar #{calculadoraBean.desviacionEstandar}" />
-				<p:outputLabel value="Varianza #{calculadoraBean.varianza}" />
-				<p:outputLabel value="Moda #{calculadoraBean.moda}"  />
+			<p:panelGrid columns="4" style="max-width:500px;margin-left:auto;margin-right:auto; background-color: #3CBC8D">
+				<p:outputLabel style="font-weight:bold " width="50%" value="Promedio #{calculadoraBean.promedio} "/>
+				<p:outputLabel style="font-weight:bold " width="50%" value="DesviacionEstandar #{calculadoraBean.desviacionEstandar}" />
+				<p:outputLabel style="font-weight:bold " width="50%" value="Varianza #{calculadoraBean.varianza}" />
+				<p:outputLabel style="font-weight:bold "  width="50%" value="Moda #{calculadoraBean.moda}"  />
+				
 			</p:panelGrid>
 
 			<p:dataTable var="Historial" value="#{calculadoraBean.datosTable}"> 
@@ -30,11 +68,15 @@
 				</p:column>
 			</p:dataTable>
 
-			<p:panelGrid columns="2">
-			<p:commandButton update="calculadora_form" actionListener="#{calculadoraBean.calculateValues(calculadoraBean.datos)}" value="Calculo de valores"/>
-			<p:commandButton update="calculadora_form" actionListener="#{calculadoraBean.restart()}" value="Restart"/>
+			<p:panelGrid columns="2" style="max-width:500px;margin-left:auto;margin-right:auto;">
+			<p:commandButton align="center" style="background-color: #3CBC8D" update="calculadora_form" actionListener="#{calculadoraBean.calculateValues(calculadoraBean.datos)}" value="Calculo de valores"/>
+			<p:commandButton align="center" style="background-color: #3CBC8D" update="calculadora_form" actionListener="#{calculadoraBean.restart()}" value="Restart"/>
 		</p:panelGrid>	
 		</h:form>
+
+<img src="https://concepto.de/wp-content/uploads/2018/08/Estadistica-inferencial-min-e1533841684477.jpg" alt="Trulli" width="49%" height="170"></img>
+<img src="https://developingthebusiness.com/wp-content/uploads/2018/05/Estadisticas-de-ventas.jpg" alt="Trulli" width="50%" height="170"></img>
+
 	</h:body>
 
 </html>
